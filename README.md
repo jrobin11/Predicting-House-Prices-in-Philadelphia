@@ -8,7 +8,7 @@ Before preprocessing, my data was quite raw and cluttered, containing a wide ran
 
 **Data:**
 Steps:
-1. Click on the link to view the file: [View Initial Data Before Preprocessing](initial_data_before_preprocessing.md).
+1. Click on the link to view the file: [View Initial Data Before Preprocessing](results/initial_data_before_preprocessing.md)
 2. Once the file is open in GitHub's default markdown view, click on the "code" button to view the  content of the file.
 
 #### After Processing:

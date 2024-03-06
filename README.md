@@ -1,6 +1,60 @@
-# Predicting-House-Prices-in-Philadelphia
+# Predicting House Prices In Philadelphia
 
-# Data Collection & Preprocessing:
+### About the Project
+In this machine learning project, students will develop a model to predict the selling price of houses in Philadelphia. The project will involve various stages including data collection, preprocessing, feature engineering, model development, and evaluation.
+
+### 1. Data Collection
+Students will gather data from various sources such as real estate websites, public databases, and APIs. The collected data will include information about the characteristics of houses such as location, size, and etc. (The number of train data needs to be more than 5000)
+
+### 2. Data Preprocessing
+The collected data will undergo preprocessing to clean and prepare it for analysis. This may involve handling missing values, removing outliers, and converting categorical variables into a suitable format for modeling.
+
+### 3. Feature Engineering
+Students will engineer new features from the existing data to improve the performance of the predictive model. This may include creating interaction terms, transforming variables, or extracting meaningful information from the available features.
+
+### 4. Model Development
+Using the preprocessed and engineered data, students will develop machine learning models to predict house prices. They will experiment with different algorithms such as linear regression, decision trees, random forests, or gradient boosting, and select the best-performing model based on evaluation metrics.
+
+Construction of Test Dataset and Evaluation of Your Model (What data needs to be test data will be specified later. I probably ask you to construct most recent data for house sale as test data)
+
+Students will construct a test dataset to evaluate the performance of their trained model. They will apply the model to the test dataset and assess its predictive accuracy using appropriate evaluation metrics such as mean absolute error or root mean squared error.
+
+### Discussion on Your Project
+In the final report, students will discuss their project findings, including insights gained from data analysis, challenges encountered during model development, and recommendations for improving the predictive performance of the model. They will also reflect on the strengths and limitations of their approach and propose future research directions.
+
+### Accessing and Running the Project
+
+#### Accessing the Repository
+To access the Predicting House Prices in Philadelphia repository, visit the following URL:
+[https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia](https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia)
+
+#### Cloning the Repository
+To clone the repository to your local machine, you can use either the HTTPS or SSH method. Open your terminal or command prompt and type the following commands:
+
+**For HTTPS:**
+```bash
+git clone https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia.git
+```
+**For SSH:**
+``` bash
+git clone git@github.com:jrobin11/Predicting-House-Prices-in-Philadelphia.git
+```
+Downloading the Repository
+If you are not familiar with Git, you can download the repository as a ZIP file by clicking the green 'Code' button on the repository page and then clicking 'Download ZIP'. Extract the ZIP file to your desired location.
+
+Running the Jupyter Notebook
+To run the Jupyter notebook, you need to have Jupyter installed. If you don't have it, you can install it using pip:
+
+```bash
+pip install notebook
+```
+Once Jupyter is installed, navigate to the directory where you cloned or downloaded the repository and start the Jupyter notebook server:
+```bash
+cd Predicting-House-Prices-in-Philadelphia
+jupyter notebook
+```
+
+## Data Collection & Preprocessing:
 In my project, I gathered data from various real estate websites, public databases, and APIs to compile a dataset on Philadelphia houses, focusing on attributes like location, size, and other significant factors. One of the challenges I faced was dealing with missing values in the dataset. To tackle this, I employed imputation techniques to fill in these gaps, ensuring no valuable information was lost. Additionally, outliers posed a significant challenge as they could skew the results of my analysis. I addressed this by identifying and removing or adjusting these data points. Another crucial step was transforming categorical variables into a format that could be effectively utilized in modeling through encoding techniques. This preprocessing was vital in cleaning the data and making it ready for analysis, laying a solid foundation for the subsequent stages of my project.
 
 #### Before Preprocessing:
@@ -59,7 +113,7 @@ Due to the substantial size of the dataset and to ensure computational efficienc
 #### Sampled Data (10%):
 By taking a 10% sample of the cleaned data (ensuring a random and representative subset with random_state=42), I was able to work with a more manageable dataset that facilitated a quick turnaround in exploratory data analysis and preliminary modeling. 
 
-# Feature Engineering:
+### Feature Engineering:
 To bolster the model's predictive power, I engineered new features from the dataset. This included creating interaction terms to capture the combined effects of different features on the sale price. For instance, multiplying the number of bedrooms by the number of bathrooms provided a 'bed_bath_interaction' term, which offered a more nuanced attribute reflecting property utility. I also transformed certain skewed variables like 'market_value' and 'sale_price' by taking their logarithms, which helped in normalizing their distributions and reducing the impact of extreme values.
 
 ### Feature Engineering Enhanced:
@@ -69,42 +123,37 @@ Additionally, I applied logarithmic transformations to 'market_value' and 'sale_
 
 These transformations, along with the extraction of dates and the creation of interaction terms, are sophisticated techniques that contribute significantly to the predictive power of my machine learning models.
 
-# Final Data Preparation for Modeling:
+### Final Data Preparation for Modeling:
 Before training the models, I took steps to ensure that all features were numeric and no NaN values were present. This involved selecting only numerical data types and dropping any remaining NaN values. This stringent final data preparation guaranteed that the models received the cleanest possible data, free from any potential issues that could bias the results.
 
-# Model Training:
+### Model Training:
 With the data prepared, I proceeded to split it into training and testing sets, using 80% of the data for training and reserving 20% for testing. This split was performed to evaluate the model's performance on unseen data, ensuring that it generalizes well to new data outside of the training dataset. A LinearRegression model was then trained on the training set, which included all numeric features except for the target variable, 'sale_price'.
 
-# Model Evaluation:
+### Model Evaluation:
 After training, the model's performance was evaluated on the testing set. The evaluation metric used was the Root Mean Squared Error (RMSE), which quantifies the model's prediction errors. An RMSE of 153,686.81 suggests the typical prediction error when estimating the sale price of houses. This value was considered relative to the average house price of $222,996.90 and a price range of $1,224,203.0 within the dataset, providing context to the magnitude of the RMSE.
 
 By comparing the RMSE to the average house price and the price range, I could assess the error in the context of actual house prices in Philadelphia. It revealed that while the model captures the general trends, there is still room for improvement, possibly through more complex models, additional feature engineering, or tuning hyperparameters.
 
 
-# Model Development:
+### Model Development:
 For developing the predictive models, I initiated and trained a linear regression model as a baseline to understand the linear relationships within the data. To tackle the complexity of the housing market, I also employed a RandomForestRegressor. I performed hyperparameter tuning using grid search to optimize the model, exploring different configurations of n_estimators, max_depth, min_samples_split, and min_samples_leaf. This not only helped in improving the model's performance but also provided insights into the importance of each hyperparameter.
 
-# Hyperparameter Tuning with RandomForestRegressor:
+### Hyperparameter Tuning with RandomForestRegressor:
 To improve upon my initial modeling efforts, I employed a RandomForestRegressor for its robustness and ability to model non-linear relationships. Recognizing the importance of hyperparameter tuning, I utilized GridSearchCV to systematically explore a range of hyperparameters across multiple folds of my data.
 
-# Hyperparameter Search Space:
+### Hyperparameter Search Space:
 I defined a grid for hyperparameter tuning, including the number of trees (n_estimators), the maximum depth of trees (max_depth), the minimum number of samples required to split an internal node (min_samples_split), and the minimum number of samples required to be at a leaf node (min_samples_leaf). This comprehensive search was designed to find the best combination that minimizes the mean squared error of predictions.
 
-# Cross-Validation and Grid Search Execution:
+### Cross-Validation and Grid Search Execution:
 I performed the grid search with 5-fold cross-validation, which allowed the model to be more generalizable and reduced the risk of overfitting. The cross-validation process not only provided a robust estimate of the model's performance but also ensured that the best hyperparameters were selected based on a more reliable evaluation metric.
 
-# Model Evaluation:
+### Model Evaluation:
 After the grid search, the best estimator was identified, and predictions were made on the testing set. The performance of the tuned RandomForestRegressor was evaluated using the RMSE, a common metric for regression problems. An RMSE of 144,879.80 was observed, which represents an improvement over my initial linear regression model. This improvement indicates that the RandomForestRegressor is capturing more complex patterns in the data.
 
 The RMSE for the RandomForestRegressor was substantially lower than the linear model, suggesting that the ensemble method is better suited for this dataset. Moreover, the RMSE value relative to the average house price and the range of house prices provides a more nuanced understanding of the model's predictive capabilities across various segments of the housing market in Philadelphia.
 
-# Reflections and Next Steps:
-The reduction in RMSE demonstrates the value of hyperparameter tuning and model complexity. It encourages further exploration of ensemble methods and possibly even more advanced techniques like boosting or neural networks to push the boundaries of predictive accuracy.
-
-In summary, the process of hyperparameter tuning has significantly enhanced the performance of my predictive model, as evidenced by the lower RMSE. It highlights the importance of exploring different model configurations to find the optimal solution for a given predictive task.
-
-# Visualizations:
-### Histogram:
+## Visualizations:
+### Histogram of Sale Prices:
 ![DistrubtionOfSalePrices](https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia/assets/73866458/d817ad8a-dbab-4a5b-af00-ae16d0e568be)
 
 In analyzing the distribution of house sale prices within my dataset, as depicted in the accompanying histogram, I've observed a pronounced right-skewness indicating that the majority of homes in Philadelphia are sold at lower price ranges. This distribution is critical to my project as it highlights the commonality of more affordable housing and the relative scarcity of high-priced real estate transactions. 
@@ -115,7 +164,7 @@ Moreover, the long tail on the right side of the distribution suggests the prese
 
 The overall sale price distribution is a valuable component of my exploratory data analysis, offering a clear visual representation of the market dynamics in Philadelphia and shaping the direction of my feature engineering and model selection processes.
 
-### Histogram:
+### Distribution of Residuals:
 ![distribution of residuals](https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia/assets/73866458/107431a1-6a2d-40db-921a-7e9917d93883)
 
 The histogram above displays the distribution of residuals, which are the differences between the actual sale prices and the prices predicted by my linear regression model. Residual analysis is a critical aspect of regression diagnostics, providing insights into the model's accuracy and whether certain assumptions of the regression are met.
@@ -126,7 +175,7 @@ Moreover, the presence of residuals on both extremes implies that there is varia
 
 In conclusion, the residual distribution is a powerful diagnostic tool that has informed me about the efficacy of my linear regression model. It will guide me in further refining the model, either by re-evaluating feature selection, introducing regularization to reduce overfitting, or exploring more complex models that can account for the nuances in the Philadelphia housing market.
 
-### Heatmap:
+### Correlation Heatmap:
 ![heatmap](https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia/assets/73866458/e7cd317f-0312-4380-a3ab-8eadb3402686)
 
 The correlation heatmap above has been instrumental in understanding the relationships between different variables in my Philadelphia housing dataset. This visualization has allowed me to pinpoint which features have a more significant impact on the sale price, which is the target variable for my predictive modeling project.
@@ -139,7 +188,7 @@ Understanding these correlations is critical for my project because it informs t
 
 In conclusion, the heatmap has been a valuable tool for identifying the most relevant features to predict house prices in Philadelphia, and the resulting insights will be used to refine my predictive models further.
 
-### Scatter Plot:
+### Scatter Plot of Market Value vs. Sale Price:
 ![scatterplot](https://github.com/jrobin11/Predicting-House-Prices-in-Philadelphia/assets/73866458/fcf98ba7-207f-4be4-a591-19fd5c345d5f)
 
 This scatter plot represents a key part of the exploratory data analysis for my project, showing the relationship between 'Market Value' and 'Sale Price' of houses in Philadelphia. As the x-axis indicates the assessed market value, and the y-axis shows the sale price, we can observe a general positive correlation, suggesting that higher market values are often associated with higher sale prices.
@@ -151,6 +200,35 @@ The presence of outliers, especially on the higher end of the sale price spectru
 Overall, the scatter plot drives home the point that while market value is a strong indicator of sale price, my predictive model will need to account for a multifaceted set of factors to accurately predict house prices in Philadelphia. The next steps in my project will involve delving deeper into feature selection and engineering to include variables that can help explain the variance in sale prices not accounted for by market value alone.
 
 
+## Reflections on the Project
 
+### Strengths
+
+- **Comprehensive Data Collection:** The robust dataset, with over 5000 data points gathered from diverse sources, provided a strong foundation for the predictive analysis.
+- **Rigorous Data Preprocessing:** Systematic handling of missing values, outliers, and categorical variables ensured that the models were trained on clean and relevant data.
+- **Innovative Feature Engineering:** The creation of interaction terms and the transformation of skewed variables allowed for a nuanced representation of the factors affecting house prices.
+- **Modeling Flexibility:** The use of different models, from linear regression to random forests, showcased the project's adaptability in finding the right tool for the right task.
+- **Quantitative Evaluation:** The RMSE provided a clear, quantitative measure of model performance, facilitating objective comparisons between different models and their predictions.
+
+### Limitations
+
+- **Model Performance:** The evaluation of RMSE alone may not capture all aspects of model performance, particularly with respect to complex, non-linear relationships in the data.
+- **Model Complexity:** The use of advanced models like RandomForestRegressor can sometimes lead to overfitting, where the model performs well on training data but may not generalize well to unseen data.
+- **Computational Demand:** As model complexity increases, so does the need for computational resources, which can limit the ability to experiment with even more sophisticated models or larger datasets.
+- **Data Skewness and Outliers:** While efforts were made to address these issues, they remain a challenge, as they can significantly influence model predictions, especially in high-value or rare segments of the market.
+
+### Discussion of Results
+
+- **Linear Regression:** Served as a valuable baseline, establishing a reference point for model performance. However, its limitations were evident in handling the complex relationships and distribution skewness present in the data.
+- **Random Forest Performance:** The Random Forest model, with an RMSE of 144,879.80, indicated a marked improvement over the linear regression, suggesting its better suitability for capturing the dataset's complexity.
+- **Comparison to House Prices:** The RMSE must be considered in the context of the average house price and the price range within the dataset. The RMSE for the RandomForest model approximates to around 65% of the average house price, indicating room for improvement.
+
+### Future Research Directions
+
+- **Model Exploration:** Future research could explore boosting methods like XGBoost or LightGBM, which can often outperform RandomForest models on structured data.
+- **Feature Expansion:** Incorporating more granular data, such as neighborhood-level socio-economic indicators, could provide deeper insights and improve predictive accuracy.
+- **Temporal Analysis:** Considering the time component more explicitly, such as looking at trends over time or seasonality effects, could enhance the model's ability to predict future prices.
+- **Model Interpretability:** Exploring models that offer a balance between predictive power and interpretability, such as Generalized Additive Models (GAMs), could provide valuable insights into the factors driving house prices.
+- **Deployment and Monitoring:** Operationalizing the model into a live environment would allow for real-time predictions and monitoring, providing a feedback loop for continuous model refinement.
 
 
